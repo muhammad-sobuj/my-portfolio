@@ -18,6 +18,7 @@ import {
   Sparkles,
   Zap,
   AlertCircle,
+  Github,
 } from "lucide-react";
 
 const Contact = () => {
@@ -167,9 +168,22 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", color: "#1877F2" },
-    { icon: Linkedin, href: "#", color: "#0A66C2" },
-    { icon: Instagram, href: "#", color: "#E4405F" },
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/muhammadsobujhossain20",
+      color: "#1877F2",
+    },
+    { icon: Linkedin, href: "https://in/md-sobuj-hossain", color: "#0A66C2" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/muhammadsobujhossain",
+      color: "#E4405F",
+    },
+    {
+      icon: Github,
+      href: "https://github.com/muhammad-sobuj",
+      color: "#1DA1F2",
+    },
     { icon: Twitter, href: "#", color: "#1DA1F2" },
   ];
 

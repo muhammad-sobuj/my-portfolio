@@ -213,7 +213,7 @@ const Portfolio = () => {
   return (
     <div
       ref={containerRef}
-      className="pt-32 px-4 md:px-12 lg:px-24 pb-20 relative overflow-hidden"
+      className="pt-20 px-4 md:px-12 lg:px-24 pb-20 relative overflow-hidden"
     >
       {/* Animated Background */}
       <div
@@ -271,7 +271,7 @@ const Portfolio = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Explore my latest projects showcasing my expertise in UI/UX design,
+          Explore my latest projects showcasing my expertise in MERN Stack Developer,
           web development, and branding. Each project reflects my passion for
           creating intuitive and beautiful digital experiences.
         </motion.p>

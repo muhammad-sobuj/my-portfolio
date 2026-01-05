@@ -17,6 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ModernNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const [activeHover, setActiveHover] = useState(null);
   const location = useLocation();
 
@@ -207,26 +208,39 @@ const ModernNavigation = () => {
   // Advanced scroll effects with GSAP ScrollTrigger
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const isScrolled = scrollPosition > 50;
+      const scrollY = window.scrollY;
+      const isScrolled = scrollY > 50;
       setScrolled(isScrolled);
+      setScrollPosition(scrollY);
 
-      // Dynamic navbar transformation
+      // Calculate dynamic colors based on scroll position
+      const scrollProgress = Math.min(scrollY / 500, 1); // Normalize to 0-1 over 500px
+
+      // Dynamic navbar transformation with color progression
       gsap.to(navRef.current, {
-        backdropFilter: isScrolled ? "blur(25px) saturate(180%)" : "blur(10px)",
+        backdropFilter: isScrolled
+          ? `blur(${20 + scrollProgress * 10}px) saturate(${
+              150 + scrollProgress * 50
+            }%)`
+          : "blur(10px)",
         backgroundColor: isScrolled
-          ? "rgba(249, 250, 251, 0.7)"
-          : "rgba(249, 250, 251, 0.95)",
+          ? `rgba(${15 + scrollProgress * 20}, ${15 + scrollProgress * 20}, ${
+              25 + scrollProgress * 20
+            }, ${0.85 + scrollProgress * 0.1})`
+          : "rgba(249, 250, 251, 0.1)",
         borderColor: isScrolled
-          ? "rgba(253, 110, 10, 0.2)"
-          : "rgba(229, 231, 235, 0.5)",
+          ? `rgba(253, 110, 10, ${0.3 + scrollProgress * 0.4})`
+          : "rgba(229, 231, 235, 0.2)",
+        boxShadow: isScrolled
+          ? `0 8px 32px rgba(253, 110, 10, ${0.1 + scrollProgress * 0.2})`
+          : "0 4px 16px rgba(0, 0, 0, 0.05)",
         duration: 0.4,
         ease: "power2.out",
       });
 
       // Parallax effect for background elements
       gsap.to(backgroundRef.current, {
-        y: scrollPosition * 0.1,
+        y: scrollY * 0.1,
         duration: 0.3,
       });
     };
@@ -305,8 +319,8 @@ const ModernNavigation = () => {
       style={{ opacity: navOpacity, scale: navScale }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/40 dark:bg-gray-900/50 backdrop-blur-2xl shadow-lg border-b border-primary/20"
-          : "bg-white/20 dark:bg-gray-900/30 backdrop-blur-lg border-b border-gray-200 dark:border-white/10"
+          ? "bg-gradient-to-r from-gray-900/60 via-gray-800/70 to-gray-900/60 dark:from-gray-900/80 dark:via-black/90 dark:to-gray-900/80 backdrop-blur-3xl shadow-2xl border-b-2 border-primary/40"
+          : "bg-gradient-to-r from-white/10 via-white/5 to-white/10 dark:from-gray-900/20 dark:via-gray-900/10 dark:to-gray-900/20 backdrop-blur-lg border-b border-gray-200/30 dark:border-white/5"
       }`}
       initial={{ y: -120, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -320,13 +334,23 @@ const ModernNavigation = () => {
         <motion.div
           className="absolute top-0 left-0 w-full h-full"
           animate={{
-            background: [
-              "radial-gradient(circle at 20% 50%, rgba(253, 110, 10, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 50%, rgba(253, 110, 10, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 40% 50%, rgba(253, 110, 10, 0.1) 0%, transparent 50%)",
-            ],
+            background: scrolled
+              ? [
+                  "radial-gradient(circle at 20% 50%, rgba(253, 110, 10, 0.2) 0%, transparent 50%)",
+                  "radial-gradient(circle at 80% 50%, rgba(253, 110, 10, 0.3) 0%, transparent 50%)",
+                  "radial-gradient(circle at 40% 50%, rgba(253, 110, 10, 0.25) 0%, transparent 50%)",
+                ]
+              : [
+                  "radial-gradient(circle at 20% 50%, rgba(253, 110, 10, 0.05) 0%, transparent 50%)",
+                  "radial-gradient(circle at 80% 50%, rgba(253, 110, 10, 0.08) 0%, transparent 50%)",
+                  "radial-gradient(circle at 40% 50%, rgba(253, 110, 10, 0.06) 0%, transparent 50%)",
+                ],
           }}
-          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          transition={{
+            duration: scrolled ? 4 : 8,
+            repeat: Infinity,
+            ease: "linear",
+          }}
         />
       </div>
 

@@ -170,7 +170,7 @@ const Home = () => {
       // Animate numbers counting up
       const numbers = statsRef.current?.querySelectorAll(".stat-number");
       numbers?.forEach((number, index) => {
-        const finalValue = [5, 20, 80][index];
+        const finalValue = [5, 20, 50][index];
         gsap.fromTo(
           number,
           { textContent: 0 },
@@ -240,7 +240,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div  className="container mx-auto">
       <motion.div
         ref={containerRef}
         className="relative min-h-screen overflow-hidden"
@@ -279,7 +279,7 @@ const Home = () => {
 
         <div
           ref={heroRef}
-          className="container mx-auto px-6 lg:px-16 flex flex-col-reverse lg:flex-row items-center justify-between relative min-h-screen pt-20"
+          className="container mx-auto px-6 lg:px-16 flex flex-col-reverse lg:flex-row items-center justify-between relative min-h-screen pt-14"
         >
           {/* Left Content */}
           <motion.div
@@ -303,7 +303,7 @@ const Home = () => {
                 Muhammad Sobuj Hossain
               </motion.p>
               <motion.h1
-                className="text-5xl lg:text-7xl font-bold font-display text-primary leading-tight mt-2 relative"
+                className="text-5xl lg:text-6xl font-bold font-display text-primary leading-tight mt-2 relative"
                 whileInView={{ opacity: [0, 1], y: [30, 0] }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
@@ -430,14 +430,14 @@ const Home = () => {
                   Experiences
                 </span>
               </div>
+
               <div className="flex flex-col px-6 border-r border-gray-200 dark:border-gray-700/50">
-                <span className="stat-number text-primary text-xl lg:text-2xl font-bold">
-                  
-                </span>
+                <span className="stat-number text-primary text-xl lg:text-2xl font-bold"></span>
                 <span className="text-sm text-text-muted-light dark:text-gray-400 mt-1">
                   Project done
                 </span>
               </div>
+
               <div className="flex flex-col pl-6">
                 <span className="stat-number text-primary text-xl lg:text-2xl font-bold">
                   0
@@ -455,7 +455,7 @@ const Home = () => {
             variants={itemVariants}
           >
             <motion.div
-              className="absolute w-[350px] h-[350px] lg:w-[500px] lg:h-[500px] rounded-full hero-circle top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:translate-x-0 lg:translate-y-[-10%] z-0"
+              className="absolute w-[300px] h-[300px] lg:w-[400px] lg:h-[400px] rounded-full hero-circle top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0"
               animate={{
                 rotate: [0, 360],
                 scale: [1, 1.1, 1],
@@ -473,10 +473,8 @@ const Home = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.img
-              alt="Muhammad Sobuj Hossain - MERN Stack Developer"
-                className="h-[450px] lg:h-[650px] object-contain object-bottom filter grayscale contrast-110 drop-shadow-2xl"
-                // src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqkdLemxi7Ungwyfu0daA_E_5NINSPBmnh8Kl4TMJ8H_i9px1rH0WKEevCMynX6pKnYoQvhNU-uBI1YUqHg5F2dD57SNY1mHRDVTs82UaAtytUOqT_8IGfr27_xpp549Z71XOe2x1cxdnAifyyEgEOgUJt412Cu3n81khuhu9KiU2gWooQG90E6vHZuTxR-cKzlueitG8_V1OSYg3H0jpsCwuIUJ2HJsc3kPLf3kAJtK7J7nRGbdac1hVQpYc9FPIep3iymnwsS5Nb"
-
+                alt="Muhammad Sobuj Hossain - MERN Stack Developer"
+                className="h-[350px] lg:h-[550px] object-contain object-bottom filter grayscale contrast-110 drop-shadow-2xl"
                 src={heroImg}
                 style={{
                   maskImage:

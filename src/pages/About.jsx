@@ -76,18 +76,18 @@ const About = () => {
 
   const education = [
     {
-      period: "2015 - 2019",
-      title: "BSc in Computer Science",
-      institution: "University of Technology",
+      period: "2016 - 2020",
+      title: "Bachelor of Honor's (BSC)",
+      institution: "National University",
       description:
         "Graduated with honors. Focused on Software Engineering and Human-Computer Interaction.",
       active: true,
       icon: GraduationCap,
     },
     {
-      period: "2014 - 2015",
-      title: "Graphic Design Course",
-      institution: "Design Institute",
+      period: "2025 - 2026",
+      title: "MERN Stack Developer",
+      institution: "Programming Hero Institute",
       description:
         "Intensive course covering color theory, typography, and layout design principles.",
       active: false,
@@ -97,7 +97,7 @@ const About = () => {
 
   const experience = [
     {
-      period: "2021 - Present",
+      period: "2025 - Present",
       title: "MERN Web Developer",
       company: "Creative Agency",
       description:
@@ -106,7 +106,7 @@ const About = () => {
       icon: Briefcase,
     },
     {
-      period: "2019 - 2021",
+      period: "2025 - 2026",
       title: "Front-End Developer",
       company: "Tech Startup",
       description:
@@ -305,15 +305,11 @@ const About = () => {
   };
 
   return (
-    <motion.div
-      ref={containerRef}
-      className="relative min-h-screen"
-      style={{ y, opacity }}
-    >
+    <div ref={containerRef} className="relative w-full">
       {/* Animated background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <motion.div
-          className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"
+          className="absolute top-0 right-0 w-[300px] h-[300px] bg-primary/5 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             rotate: [0, 180, 360],
@@ -342,7 +338,7 @@ const About = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 lg:px-16 py-10 lg:py-16 relative">
+      <div className="container mx-auto px-6 lg:px-16 py-20 lg:py-24 relative">
         {/* Header */}
         <motion.div
           ref={headerRef}
@@ -410,9 +406,8 @@ const About = () => {
               transition={{ duration: 0.3 }}
             >
               <motion.img
-                alt="Mahmood Fazile Portrait"
+                alt="Muhammad Sobuj Hossain "
                 className="w-full h-full object-cover object-top filter grayscale group-hover:grayscale-0 transition-all duration-500"
-                // src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqkdLemxi7Ungwyfu0daA_E_5NINSPBmnh8Kl4TMJ8H_i9px1rH0WKEevCMynX6pKnYoQvhNU-uBI1YUqHg5F2dD57SNY1mHRDVTs82UaAtytUOqT_8IGfr27_xpp549Z71XOe2x1cxdnAifyyEgEOgUJt412Cu3n81khuhu9KiU2gWooQG90E6vHZuTxR-cKzlueitG8_V1OSYg3H0jpsCwuIUJ2HJsc3kPLf3kAJtK7J7nRGbdac1hVQpYc9FPIep3iymnwsS5Nb"
                 src={heroImg}
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3 }}
@@ -426,9 +421,7 @@ const About = () => {
               >
                 <div className="text-white">
                   <h3 className="font-bold text-lg">Muhammad Sobuj Hossain</h3>
-                  <p className="text-sm opacity-90">
-                    UI/UX Designer & Developer
-                  </p>
+                  <p className="text-sm opacity-90">MERN Stack Developer</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -442,7 +435,7 @@ const About = () => {
               className="text-3xl font-bold font-display text-text-light dark:text-white"
               variants={itemVariants}
             >
-              <span className="text-primary">MERN Web</span>  Developer
+              <span className="text-primary">MERN Web</span> Developer
             </motion.h2>
 
             <motion.p
@@ -450,7 +443,7 @@ const About = () => {
               variants={itemVariants}
             >
               I Muhammad Sobuj Hossain, a passionate creative specializing in
-              crafting intuitive and dynamic user experiences. With over 5 years
+              crafting intuitive and dynamic user experiences. With over 1 years
               of industry experience, I bridge the gap between design and
               technology.
             </motion.p>
@@ -475,7 +468,11 @@ const About = () => {
                   label: "Email",
                   value: "muhammadsobuj20@gmail.com",
                 },
-                { icon: MapPin, label: "Location", value: "Sirajganj, Dhaka Bangladesh" },
+                {
+                  icon: MapPin,
+                  label: "Location",
+                  value: "Sirajganj, Dhaka Bangladesh",
+                },
                 { icon: Calendar, label: "Experience", value: "0.5+ Years" },
                 {
                   icon: Zap,
@@ -778,7 +775,7 @@ const About = () => {
           </motion.div>
         </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
